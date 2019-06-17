@@ -1,0 +1,50 @@
+body {
+    background-color: #d3d3d3;
+}
+
+/* Formes */
+
+.square {
+    height: 100px;
+    width: 100px;
+}
+
+.circle {
+	border-radius: 50%;
+	width: 100px;
+    height: 100px; 
+}
+
+.diamond {
+    height: 100px;
+    width: 100px;
+    transform: rotateZ(45deg);
+    margin: 3%;
+}
+
+/* Couleurs */
+
+.blue {
+    background-color: #0262df;
+    border: 1px solid grey;
+}
+
+.red {
+    background-color: #d31717;
+    border: 1px solid grey;
+}
+
+.yellow {
+    background-color: #e6d816;
+    border: 1px solid grey;
+}
+
+.green {
+    background-color: #1a960f;
+    border: 1px solid grey;
+}
+
+.black {
+    background-color: #000;
+    border: 1px solid grey;
+}
