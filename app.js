@@ -75,7 +75,8 @@ function level(items, bombs) {
 
     // Création des formes
     for (let i = 0; i < items; i++) {
-        let shape = document.createElement("div")
+        let shape = document.createElement("div");
+        shape.className += "shape";
 
         // Formes random
         let formes = ["square", "circle"];
@@ -101,6 +102,18 @@ function level(items, bombs) {
 
         // Création effective de la forme générée ci-dessus
         board.appendChild(shape);
+    }
+
+    let shapeDel = document.querySelectorAll(".shape");
+
+    console.log(shapeDel);
+    
+
+    for (let i = 0; i < shapeDel.length; i++) {
+            shapeDel[i].addEventListener("click", function(event) {
+                event.target.remove();
+            });
+        
     }
 
     // Création de bombes
@@ -129,11 +142,15 @@ function level(items, bombs) {
 
         bombe.style.left = `${pos_x}%`;
         bombe.style.top = `${pos_y}%`;
-        
+
         board.appendChild(bombe);
     }
-}
 
-function destroy() {
-    
+    // let shapeDel = document.querySelector(".shape");
+
+    // console.log(shapeDel);
+
+    // shapeDel.addEventListener("click", function (event) {
+    //     event.target.remove();
+    // });
 }
