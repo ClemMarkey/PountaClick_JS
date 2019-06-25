@@ -32,3 +32,108 @@ Créer les formes en CSS
 
 
 */
+
+let nav = document.createElement("nav");
+document.body.appendChild(nav);
+
+let btnNoob = document.createElement("button");
+let btnHardcore = document.createElement("button");
+let btnUltra = document.createElement("button");
+
+nav.appendChild(btnNoob);
+nav.appendChild(btnHardcore);
+nav.appendChild(btnUltra);
+
+btnNoob.textContent = "Noob";
+btnHardcore.textContent = "Hardcore";
+btnUltra.textContent = "Ultraviolence";
+
+let board = document.createElement("div");
+board.className += "board";
+document.body.appendChild(board);
+
+
+btnNoob.addEventListener("click", function () {
+    level(17, 3, 60);
+})
+
+btnHardcore.addEventListener("click", function () {
+    level(60, 20, 45);
+})
+
+btnUltra.addEventListener("click", function () {
+    level(130, 70, 30);
+})
+
+
+function level(items, bombs) {
+
+    // Reset de la planche de jeu
+    while (board.firstChild) {
+        board.removeChild(board.firstChild);
+    }
+
+    // Création des formes
+    for (let i = 0; i < items; i++) {
+        let shape = document.createElement("div")
+
+        // Formes random
+        let formes = ["square", "circle"];
+        let forme = Math.floor(Math.random() * formes.length);
+
+        // Couleurs random
+        let colors = ["blue", "green", "yellow", "red"];
+        let color = Math.floor(Math.random() * colors.length);
+
+        // Tailles random
+        let tailles = ["small", "medium", "large"];
+        let taille = Math.floor(Math.random() * tailles.length);
+
+        // Application aléatoire des classes
+        shape.classList.add(formes[forme], colors[color], tailles[taille]);
+
+        // Attribution aléatoire des positions
+        pos_x = Math.floor(Math.random() * 96);
+        pos_y = Math.floor(Math.random() * 91);
+
+        shape.style.left = `${pos_x}%`;
+        shape.style.top = `${pos_y}%`;
+
+        // Création effective de la forme générée ci-dessus
+        board.appendChild(shape);
+    }
+
+    // Création de bombes
+    for (let i = 0; i < bombs; i++) {
+        let bombe = document.createElement("div")
+        //    for (let i = 0; i < items; i++) {
+
+        // Formes random
+        let formes = ["square", "circle"];
+        let forme = Math.floor(Math.random() * formes.length);
+
+        // Couleurs random
+        let colors = ["blue", "green", "yellow", "red"];
+        let color = Math.floor(Math.random() * colors.length);
+
+        // Tailles random
+        let tailles = ["small", "medium", "large"];
+        let taille = Math.floor(Math.random() * tailles.length);
+
+        // Application aléatoire des classes
+        bombe.classList.add(formes[forme], "black", tailles[taille]);
+
+        // Attribution aléatoire des positions
+        pos_x = Math.floor(Math.random() * 96);
+        pos_y = Math.floor(Math.random() * 91);
+
+        bombe.style.left = `${pos_x}%`;
+        bombe.style.top = `${pos_y}%`;
+        
+        board.appendChild(bombe);
+    }
+}
+
+function destroy() {
+    
+}
