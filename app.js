@@ -40,9 +40,16 @@ let btnNoob = document.createElement("button");
 let btnHardcore = document.createElement("button");
 let btnUltra = document.createElement("button");
 
+let score = document.createElement("div");
+score.textContent = "0"
+let scoreNum = 0;
+
 nav.appendChild(btnNoob);
 nav.appendChild(btnHardcore);
 nav.appendChild(btnUltra);
+nav.appendChild(score);
+
+score.className += "score"
 
 btnNoob.textContent = "Noob";
 btnHardcore.textContent = "Hardcore";
@@ -55,14 +62,17 @@ document.body.appendChild(board);
 
 btnNoob.addEventListener("click", function () {
     level(17, 3, 60);
+    score.textContent = "0";
 })
 
 btnHardcore.addEventListener("click", function () {
     level(60, 20, 45);
+    score.textContent = "0";
 })
 
 btnUltra.addEventListener("click", function () {
     level(130, 70, 30);
+    score.textContent = "0";
 })
 
 
@@ -104,16 +114,56 @@ function level(items, bombs) {
         board.appendChild(shape);
     }
 
+
     let shapeDel = document.querySelectorAll(".shape");
 
-    console.log(shapeDel);
-    
+
+    // Boucle de suppresion de formes et d'incrémentation du score;
 
     for (let i = 0; i < shapeDel.length; i++) {
-            shapeDel[i].addEventListener("click", function(event) {
-                event.target.remove();
-            });
-        
+        shapeDel[i].addEventListener("click", function (event) {
+            event.target.remove();
+
+            scoreNum++;
+
+            if (scoreNum === shapeDel.length) {
+
+                while (board.firstChild) {
+                    board.removeChild(board.firstChild);
+                }
+                
+                let win = document.createElement("div");
+
+                win.className += "win";
+    
+                win.innerText = `Tu as gagné, pompélup !`
+    
+                board.appendChild(win);
+
+
+            }
+
+            score.textContent = scoreNum;
+            let bombs = document.querySelectorAll(".black");
+
+            // Boucle de randomisation des positions à chaque clic
+            // Formes colorées random au clic
+            for (let j = 0; j < shapeDel.length; j++) {
+                pos_x = Math.floor(Math.random() * 96);
+                pos_y = Math.floor(Math.random() * 91);
+                shapeDel[j].style.left = `${pos_x}%`;
+                shapeDel[j].style.top = `${pos_y}%`;
+
+                // Formes noires random au clic
+                for (let k = 0; k < bombs.length; k++) {
+                    pos_x = Math.floor(Math.random() * 96);
+                    pos_y = Math.floor(Math.random() * 91);
+                    bombs[k].style.left = `${pos_x}%`;
+                    bombs[k].style.top = `${pos_y}%`;
+                }
+            }
+        });
+
     }
 
     // Création de bombes
@@ -144,13 +194,21 @@ function level(items, bombs) {
         bombe.style.top = `${pos_y}%`;
 
         board.appendChild(bombe);
+
+        bombe.addEventListener("click", function boom() {
+            while (board.firstChild) {
+                board.removeChild(board.firstChild);
+            }
+            let lost = document.createElement("div");
+
+            lost.className += "lost";
+
+            lost.innerText = `Tu as explosé ! \n Ton score: ${scoreNum}`
+
+            board.appendChild(lost);
+
+
+        })
+
     }
-
-    // let shapeDel = document.querySelector(".shape");
-
-    // console.log(shapeDel);
-
-    // shapeDel.addEventListener("click", function (event) {
-    //     event.target.remove();
-    // });
 }

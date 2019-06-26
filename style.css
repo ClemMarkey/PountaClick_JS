@@ -20,6 +20,16 @@ button {
     width: 400px;
 }
 
+.score {
+    width: 5em;
+    height: 2em;
+    background-color: #fff;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .fond {
     height: 80vh;
     background-color: #9acd32;
@@ -35,6 +45,38 @@ button {
     width: 90vw;
     background-color: #aaaaeb;
     position: relative;
+}
+
+.lost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #be0707;
+    text-shadow: 3px 5px 2px black;
+    font-size: 7em;
+    width: 70%;
+    height: 70%;
+    background-color: rgb(23, 26, 204);
+    border: 15px dashed black;
+    left: 17%;
+    top: 13%;
+    position: absolute;
+}
+
+.win {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #be0707;
+    text-shadow: 3px 5px 2px black;
+    font-size: 7em;
+    width: 70%;
+    height: 70%;
+    background-color: rgb(23, 26, 204);
+    border: 15px dashed black;
+    left: 17%;
+    top: 13%;
+    position: absolute;
 }
 
 /* Tailles */
