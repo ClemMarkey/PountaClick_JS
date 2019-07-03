@@ -62,17 +62,17 @@ document.body.appendChild(board);
 
 btnNoob.addEventListener("click", function () {
     level(17, 3, 60);
-    score.textContent = "0";
+    scoreNum = 0;
 })
 
 btnHardcore.addEventListener("click", function () {
     level(60, 20, 45);
-    score.textContent = "0";
+    scoreNum = 0;
 })
 
 btnUltra.addEventListener("click", function () {
     level(130, 70, 30);
-    score.textContent = "0";
+    scoreNum = 0;
 })
 
 

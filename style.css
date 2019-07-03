@@ -1,12 +1,12 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: #9acd32;
+    background-color: #084c61;
 }
 
 nav {
     height: 80px;
-    background-color: #4ec7c7;
+    background-color: #db3a34;
     padding-top: 1%;
     display: flex;
     justify-content: space-around;
@@ -18,6 +18,16 @@ button {
     height: 1.5em;
     font-size: 1.5em;
     width: 400px;
+    border-radius: 20px;
+    border: 1px solid black;
+    background-color: #ffc857;
+    color: white;
+    text-shadow: 2px 2px 1px black;
+    transition-duration: .4s;
+}
+
+button:hover{
+    transform: scale(1.3);
 }
 
 .score {
@@ -30,20 +40,20 @@ button {
     align-items: center;
 }
 
-.fond {
+/* .fond {
     height: 80vh;
     background-color: #9acd32;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .board {
     margin: 3% auto;
     height: 80vh;
     width: 90vw;
-    background-color: #aaaaeb;
+    background-color: #cacaca;
     position: relative;
 }
 
@@ -51,13 +61,13 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #be0707;
+    color: #ffc857;
     text-shadow: 3px 5px 2px black;
     font-size: 7em;
     width: 70%;
     height: 70%;
-    background-color: rgb(23, 26, 204);
-    border: 15px dashed black;
+    background-color: #084c61;
+    border: 15px dashed #db3a34;
     left: 17%;
     top: 13%;
     position: absolute;
@@ -67,13 +77,13 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #be0707;
+    color: #ffc857;
     text-shadow: 3px 5px 2px black;
     font-size: 7em;
     width: 70%;
     height: 70%;
-    background-color: rgb(23, 26, 204);
-    border: 15px dashed black;
+    background-color: #084c61;
+    border: 15px dashed #db3a34;
     left: 17%;
     top: 13%;
     position: absolute;
@@ -109,22 +119,22 @@ button {
 /* Couleurs */
 
 .blue {
-    background-color: #0262df;
+    background-color: #177e89;
     border: 1px solid grey;
 }
 
 .red {
-    background-color: #d31717;
+    background-color: #d8514d;
     border: 1px solid grey;
 }
 
 .yellow {
-    background-color: #eecc0d;
+    background-color: #ffc857;
     border: 1px solid grey;
 }
 
 .green {
-    background-color: #1a960f;
+    background-color: #5eb356;
     border: 1px solid grey;
 }
 
